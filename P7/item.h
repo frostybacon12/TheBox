@@ -11,9 +11,14 @@ private:
 
 public:
 
-	//TODO: functions for changing data members
+	//getters and setters
+	void setName(string newName) { name = newName; }
 
+	string getName() { return name; }
 
+	void setPrice(double newPrice) { price = newPrice; }
+
+	double getPrice() { return price; }
 
 	//default constructor
 	item() {

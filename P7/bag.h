@@ -1,7 +1,7 @@
 #ifndef BAG
 #define BAG
 #include "item.h"
-
+;
 class bag {
 private:
 	int n; //current number of items in the bag
@@ -23,7 +23,7 @@ public:
 	//task: remove all items from the array
 	//post: array is empty
 
-	int frequencyOf(string item);
+	int frequencyOf(item thisItem);
 	//pre: variables are initialized
 	//task: count how many times a certain item appears
 	//post: return the frequency
@@ -33,7 +33,7 @@ public:
 	//task: check if the array is empty
 	//post: return true or false
 
-	bool contains(string item, int &x);
+	bool contains(item thisIitem, int &x);
 	//pre: array is initialized
 	//task: search for an item
 	//post: return true or false

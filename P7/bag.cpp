@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "bag.h"
 #include "item.h"
-
+;
 //add function
 void bag::add(item thisItem)
 {
@@ -12,7 +12,8 @@ void bag::add(item thisItem)
 //remove function
 void bag::remove()
 {
-	items[n - 1] = to_string(0); //make the item null
+	items[n - 1].setName(to_string(0)) ; //make the name null
+	items[n - 1].setPrice(0.0); //make price default
 	n--; // array is one element smaller
 }
 
@@ -20,16 +21,17 @@ void bag::remove()
 void bag::clear()
 {
 	for (int i = 0; i < n; i++) {
-		items[i] = to_string(0); //make the item null
+		items[i].setName(to_string(0)); //make the name null
+		items[i].setPrice(0.0); //make price default
 	}
 	n = 0; //array is empty, so size is 0
 }
 
 //frequencyOf
-int bag::frequencyOf(string item) {
+int bag::frequencyOf(item thisItem) {
 	int x = 0;
 	for (int i = 0; i < n; i++) {
-		if (items[i].compare(item) == 0) {
+		if (items[i].getName().compare(thisItem)) {
 			x++; //frequency increased by 1
 		}
 	}
@@ -46,9 +48,9 @@ bool bag::isEmpty()
 }
 
 //contains function
-bool bag::contains(string item, int &x) {
+bool bag::contains(item thisItem, int &x) {
 	for (int i = 0; i < n; i++) {
-		if (items[i].compare(item) == 0) {
+		if (items[i].getName().compare(thisItem) == 0) {
 			x = i + 1; // index + 1
 			return true; // item is in the bag
 		}
@@ -69,7 +71,7 @@ void bag::display()
 	}
 	else {
 		for (int i = 0; i < n; i++) {
-			cout << items[i] << "\n";
+			cout << items[i].getName() << " . . . . . $" << items[i].getPrice() << "\n";
 		}
 	}
 }
