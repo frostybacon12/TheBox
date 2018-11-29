@@ -1,4 +1,5 @@
 #include "pch.h"
+#include<iostream>
 #include "bag.h"
 
 //default constructers
@@ -36,6 +37,10 @@ void bag::clear()
 	n = 0; //array is empty, so size is 0
 }
 
+/*
+
+
+
 //frequencyOf
 int bag::frequencyOf(item anItem)
 {
@@ -48,6 +53,10 @@ int bag::frequencyOf(item anItem)
 	return x;
 }
 
+
+
+*/
+
 //isEmpty
 bool bag::isEmpty()
 {
@@ -56,6 +65,10 @@ bool bag::isEmpty()
 	}
 	return false;
 }
+
+/*
+
+
 
 //contains
 bool bag::contains(item anItem, int & x)
@@ -68,6 +81,10 @@ bool bag::contains(item anItem, int & x)
 	}
 	return false;
 }
+
+
+
+*/
 
 //getCurrentSize
 int bag::getCurrentSize()
