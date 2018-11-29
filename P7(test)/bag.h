@@ -8,12 +8,12 @@ private:
 	int n;
 	item items[20];
 public:
-	void add(item anItem);
+	void add(string anItemName, double anItemPrice);
 	//pre: variables are initialized
 	//task: add an item to the array
 	//post: item is added
 
-	void remove();
+	void remove(string anItemName);
 	//pre: array must not be empty
 	//task: remove last item
 	//post: last item is removed
@@ -23,7 +23,7 @@ public:
 	//task: remove all items from the array
 	//post: array is empty
 
-	int frequencyOf(item anItem);
+	int frequencyOf(string anItem);
 	//pre: variables are initialized
 	//task: count how many times a certain item appears
 	//post: return the frequency
@@ -33,7 +33,7 @@ public:
 	//task: check if the array is empty
 	//post: return true or false
 
-	bool contains(item anItem, int &x);
+	bool contains(string anItem, int &x);
 	//pre: array is initialized
 	//task: search for an item
 	//post: return true or false

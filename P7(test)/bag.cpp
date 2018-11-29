@@ -13,17 +13,24 @@ bag::~bag()
 }
 
 //add
-void bag::add(item anItem)
+void bag::add(string anItemName, double anItemPrice)
 {
-	items[n] = anItem; //add an item to the array
+	items[n].setName(anItemName); //add an item to the array by giving it a non-null name
+	items[n].setPrice(anItemPrice); //set the price to the user input
 	n++; //array is one element bigger
 }
 
 //remove
-void bag::remove()
+void bag::remove(string anItemName)
 {
-	items[n - 1].setName(to_string(0)); //make the name null
-	items[n - 1].setPrice(0.0); //make price default
+	for (int i = 0; i < n; i++) {
+		if (items[i].getName().compare(anItemName) == 0) {
+			for (int j = i; j < n; j++) {
+				items[j].setName(items[j + 1].getName());
+				items[j].setPrice(items[j + 1].getPrice());
+			}
+		}
+	}
 	n--; // array is one element smaller
 }
 
@@ -37,25 +44,17 @@ void bag::clear()
 	n = 0; //array is empty, so size is 0
 }
 
-/*
-
-
-
 //frequencyOf
-int bag::frequencyOf(item anItem)
+int bag::frequencyOf(string anItemName)
 {
 	int x = 0;
 	for (int i = 0; i < n; i++) {
-		if (items[i].getName().compare(anItem)) {
+		if (items[i].getName().compare(anItemName) == 0) {
 			x++; //frequency increased by 1
 		}
 	}
 	return x;
 }
-
-
-
-*/
 
 //isEmpty
 bool bag::isEmpty()
@@ -66,25 +65,17 @@ bool bag::isEmpty()
 	return false;
 }
 
-/*
-
-
-
 //contains
-bool bag::contains(item anItem, int & x)
+bool bag::contains(string anItemName, int & x)
 {
 	for (int i = 0; i < n; i++) {
-		if (items[i].getName().compare(anItem) == 0) {
+		if (items[i].getName().compare(anItemName) == 0) {
 			x = i + 1; // index + 1
 			return true; // item is in the bag
 		}
 	}
 	return false;
 }
-
-
-
-*/
 
 //getCurrentSize
 int bag::getCurrentSize()
