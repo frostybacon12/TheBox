@@ -5,8 +5,9 @@
 class bag
 {
 private:
-	int n;
-	item items[20];
+	int n; //number of items in the array
+	item items[50]; //array of items
+
 public:
 	void add(string anItemName, double anItemPrice);
 	//pre: variables are initialized
@@ -50,6 +51,7 @@ public:
 
 	//default constructor
 	bag();
-	~bag();
+	//pre: code compiles correctly
+	//task: make a bag object with the default values for each variable
+	//post: a default bag will exist
 };
-

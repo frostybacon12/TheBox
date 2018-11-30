@@ -2,16 +2,6 @@
 #include<iostream>
 #include "bag.h"
 
-//default constructers
-bag::bag()
-{
-	n = 0;
-}
-
-bag::~bag()
-{
-}
-
 //add
 void bag::add(string anItemName, double anItemPrice)
 {
@@ -23,22 +13,22 @@ void bag::add(string anItemName, double anItemPrice)
 //remove
 void bag::remove(string anItemName)
 {
-	for (int i = 0; i < n; i++) {
-		if (items[i].getName().compare(anItemName) == 0) {
-			for (int j = i; j < n; j++) {
+	for (int i = 0; i < n; i++) { //search for the item entered. This loop will check the whole array.
+		if (items[i].getName().compare(anItemName) == 0) { //item is found
+			for (int j = i; j < n; j++) { //overwrite the item with data from the item located at i + 1. Repeat until the end of the array.
 				items[j].setName(items[j + 1].getName());
 				items[j].setPrice(items[j + 1].getPrice());
 			}
+			n--; // array is one element smaller
 		}
 	}
-	n--; // array is one element smaller
 }
 
 //clear
 void bag::clear()
 {
 	for (int i = 0; i < n; i++) {
-		items[i].setName(to_string(0)); //make the name null
+		items[i].setName('\0'); //make the name null
 		items[i].setPrice(0.0); //make price default
 	}
 	n = 0; //array is empty, so size is 0
@@ -47,10 +37,10 @@ void bag::clear()
 //frequencyOf
 int bag::frequencyOf(string anItemName)
 {
-	int x = 0;
+	int x = 0; //stores frequency of an item's name
 	for (int i = 0; i < n; i++) {
 		if (items[i].getName().compare(anItemName) == 0) {
-			x++; //frequency increased by 1
+			x++; //for each time the item is in the bag, frequency is increased by 1
 		}
 	}
 	return x;
@@ -59,7 +49,7 @@ int bag::frequencyOf(string anItemName)
 //isEmpty
 bool bag::isEmpty()
 {
-	if (n == 0) {
+	if (n == 0) { //n is the number of items in the array. If n == 0, the array is empty.
 		return true;
 	}
 	return false;
@@ -70,8 +60,8 @@ bool bag::contains(string anItemName, int & x)
 {
 	for (int i = 0; i < n; i++) {
 		if (items[i].getName().compare(anItemName) == 0) {
-			x = i + 1; // index + 1
-			return true; // item is in the bag
+			x = i++; //index + 1, as the array starts at 0
+			return true; //item is in the bag
 		}
 	}
 	return false;
@@ -91,7 +81,13 @@ void bag::display()
 	}
 	else {
 		for (int i = 0; i < n; i++) {
-			std::cout << (items[i]).getName() << " . . . . . $" << (items[i]).getPrice() << "\n";
+			std::cout << (items[i]).getName() << " . . . . . $" << (items[i]).getPrice() << "\n"; //output the name and price for each item
 		}
 	}
+}
+
+//default constructor
+bag::bag()
+{
+	n = 0;
 }
