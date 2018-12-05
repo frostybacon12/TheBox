@@ -3,10 +3,9 @@
 #include "bag.h"
 
 //add
-void bag::add(string anItemName, double anItemPrice)
+void bag::add(string anItemName)
 {
 	items[n].setName(anItemName); //add an item to the array by giving it a non-null name
-	items[n].setPrice(anItemPrice); //set the price to the user input
 	n++; //array is one element bigger
 }
 
@@ -17,7 +16,6 @@ void bag::remove(string anItemName)
 		if (items[i].getName().compare(anItemName) == 0) { //item is found
 			for (int j = i; j < n; j++) { //overwrite the item with data from the item located at i + 1. Repeat until the end of the array.
 				items[j].setName(items[j + 1].getName());
-				items[j].setPrice(items[j + 1].getPrice());
 			}
 			n--; // array is one element smaller
 		}
@@ -52,11 +50,10 @@ bool bag::isEmpty()
 }
 
 //contains
-bool bag::contains(string anItemName, int & x)
+bool bag::contains(string anItemName)
 {
 	for (int i = 0; i < n; i++) {
 		if (items[i].getName().compare(anItemName) == 0) {
-			x = i + 1;//index + 1, as the array starts at 0
 			return true; //item is in the bag
 		}
 	}
@@ -77,7 +74,7 @@ void bag::display()
 	}
 	else {
 		for (int i = 0; i < n; i++) {
-			std::cout << (items[i]).getName() << " . . . . . $" << (items[i]).getPrice() << "\n"; //output the name and price for each item
+			std::cout << (items[i]).getName() << "\n"; //output the name for each item
 		}
 	}
 }
