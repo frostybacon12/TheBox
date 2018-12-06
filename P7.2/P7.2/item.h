@@ -7,7 +7,6 @@ class item
 {
 private:
 	string name; //the item's name
-	double price; //the item's price
 
 public:
 	//mutators
