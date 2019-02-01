@@ -1,11 +1,11 @@
 # TheBox
-CS 1511 projects for fall semester, 2018.
+CS 1511 & 1521 projects for 2018 / 2019 school year.
+
+1511 projects start with 'P'
+1521 projects start with 'Q'
 
 To view the code for a project, follow this general path:
 # P1 -> P1 -> P1.cpp
 
-For project 7, you will need the header files (bag.h and item.h) and their respective definition files (bag.cpp and item.cpp) in addition to the main class file, P7.cpp.
-
-P7.2 has Jim's version of the main class implemented, and does not have prive as a data member of the item class. Use this for the actual project.
 
 If you have any questions at all about any of the projects, hit me up on snap.
